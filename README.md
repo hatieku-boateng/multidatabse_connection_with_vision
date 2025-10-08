@@ -11,7 +11,7 @@ A minimal setup for verifying ID images against curated references using PyTorch
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-pip install torch torchvision pillow numpy streamlit
+pip install -r requirements.txt
 ```
 
 If you prefer CPU-only wheels for PyTorch, add the extra index:
@@ -40,5 +40,5 @@ streamlit run tools/streamlit_login.py
 Use the "Curated reference folder" input to point to your `id_cards/curated` directory if needed.
 
 ## Notes
-- The repo has been cleaned of environment checks and auxiliary SQL demo code.
-- No automatic package installation occurs in the UI; manage dependencies via pip.
+- requirements.txt references requirements.lock.txt to reproduce your current environment on Streamlit Cloud.
+- If you change your local environment, regenerate the lock: `pip freeze > requirements.lock.txt`.
